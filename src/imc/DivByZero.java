@@ -21,6 +21,7 @@ public class DivByZero {
             
             if (parseFloat == 0) {
                 
+                System.out.println("A altura deve ser maior que zero!");
                 isDivByZero = true;
                 
             }

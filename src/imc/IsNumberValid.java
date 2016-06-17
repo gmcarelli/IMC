@@ -5,11 +5,13 @@
  */
 package imc;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author gilca
  */
-public class IsFloat {
+public class IsNumberValid {
     
     public static boolean isFloat(String value) {
         
@@ -17,7 +19,9 @@ public class IsFloat {
         
         try {
             
-            Float.parseFloat(value);            
+            BigDecimal bigDecimal = new BigDecimal(value);
+            
+            //Float.parseFloat(value);            
             
             isFloat = true;
             

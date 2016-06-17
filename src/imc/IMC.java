@@ -15,9 +15,9 @@ import java.math.RoundingMode;
 public class IMC {
 
     public static BigDecimal calculaIMC(String peso, String altura) {
-        BigDecimal pesoAux, alturaAux, alturaQ, imc;     
-        
-        if (IsFloat.isFloat(peso) && IsFloat.isFloat(altura) 
+        BigDecimal pesoAux, alturaAux, alturaQ, imc;
+
+        if (IsNumberValid.isFloat(peso) && IsNumberValid.isFloat(altura)
                 && !DivByZero.isDivByZero(altura)) {
 
             pesoAux = new BigDecimal(peso).setScale(2);
@@ -26,10 +26,11 @@ public class IMC {
             alturaAux = new BigDecimal(altura).setScale(2);
             //System.out.println(alturaAux);
 
-            alturaQ = alturaAux.multiply(alturaAux).setScale(2);
+            //alturaQ = alturaAux.multiply(alturaAux).setScale(2);
             //System.out.println(alturaQ);
 
-            imc = pesoAux.divide(alturaQ, 2, RoundingMode.DOWN);
+            imc = pesoAux.divide(
+                    alturaAux.multiply(alturaAux).setScale(2), 2, RoundingMode.DOWN);
 
         } else {
 
@@ -41,23 +42,3 @@ public class IMC {
     }
 
 }
-
-//public static float calcularIMC(String peso, String altura) {
-//        float pesoAux, alturaAux, imc;
-//
-//        if (IsFloat.isFloat(peso) && IsFloat.isFloat(altura)) {
-//
-//            pesoAux = new Float(peso);
-//
-//            alturaAux = new Float(altura);
-//
-//            imc = pesoAux / (alturaAux * alturaAux);
-//
-//        } else {
-//
-//            imc = 0;
-//
-//        }
-//
-//        return imc;
-//    }

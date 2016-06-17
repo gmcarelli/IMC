@@ -24,7 +24,7 @@ public class CaseTest4 {
     }
     
     @Test
-    public void caseTest1(){
+    public void caseTest4(){
         
         BigDecimal imc = IMC.calculaIMC("80.50", "0");
         

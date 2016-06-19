@@ -13,17 +13,15 @@ import java.math.BigDecimal;
  */
 public class IsNumberValid {
     
-    public static boolean isFloat(String value) {
+    public static boolean IsNumberValid(String value) {
         
-        boolean isFloat = false;
+        boolean IsNumberValid = false;
         
         try {
             
-            BigDecimal bigDecimal = new BigDecimal(value);
+            BigDecimal bigDecimal = new BigDecimal(value);            
             
-            //Float.parseFloat(value);            
-            
-            isFloat = true;
+            IsNumberValid = true;
             
         } catch (Exception e) {
             
@@ -31,7 +29,7 @@ public class IsNumberValid {
             
         }
         
-        return isFloat;
+        return IsNumberValid;
     }
     
 }

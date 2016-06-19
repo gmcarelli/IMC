@@ -9,31 +9,13 @@ package imc;
  *
  * @author gilca
  */
-public class DivByZero {
+public class DivByZero extends Exception{
     
-     public static boolean isDivByZero(String value) {
+    @Override
+    public String toString(){
         
-        boolean isDivByZero = false;
+        return "Divisão por zero";
         
-        try {
-            
-            float parseFloat = Float.parseFloat(value);   
-            
-            if (parseFloat == 0) {
-                
-                System.out.println("A altura deve ser maior que zero!");
-                isDivByZero = true;
-                
-            }
-            
-        } catch (Exception e) {
-            
-            System.out.println("O valor informado não é um número real válido.");
-            //throw new NumberFormatException("O valor informado não é um número real válido.");
-            
-        }
-        
-        return isDivByZero;
     }
     
 }

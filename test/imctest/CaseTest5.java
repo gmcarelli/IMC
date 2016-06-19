@@ -5,6 +5,7 @@
  */
 package imctest;
 
+import imc.DivByZero;
 import imc.IMC;
 import java.math.BigDecimal;
 import org.junit.After;
@@ -24,7 +25,7 @@ public class CaseTest5 {
     }
     
     @Test
-    public void caseTest1() {
+    public void caseTest1() throws DivByZero {
         
         BigDecimal imc = IMC.calculaIMC("71.5", "1.7");
         

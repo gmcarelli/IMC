@@ -14,23 +14,26 @@ import java.math.RoundingMode;
  */
 public class IMC {
 
-    public static BigDecimal calculaIMC(String peso, String altura) {
-        BigDecimal pesoAux, alturaAux, alturaQ, imc;
+    public static BigDecimal calculaIMC(String peso, String altura) throws DivByZero {
+        BigDecimal pesoAux, alturaAux, imc;
 
-        if (IsNumberValid.isFloat(peso) && IsNumberValid.isFloat(altura)
-                && !DivByZero.isDivByZero(altura)) {
+        if (IsNumberValid.IsNumberValid(peso) && IsNumberValid.IsNumberValid(altura)) {
 
             pesoAux = new BigDecimal(peso).setScale(2);
-            //System.out.println(pesoAux);
+            System.out.println(pesoAux);
 
             alturaAux = new BigDecimal(altura).setScale(2);
-            //System.out.println(alturaAux);
+            System.out.println(alturaAux);
 
-            //alturaQ = alturaAux.multiply(alturaAux).setScale(2);
-            //System.out.println(alturaQ);
+            if (alturaAux.toString().equals("0.00")) {
 
-            imc = pesoAux.divide(
-                    alturaAux.multiply(alturaAux).setScale(2), 2, RoundingMode.DOWN);
+                throw new DivByZero();
+
+            } else {
+
+                imc = pesoAux.divide(
+                        alturaAux.multiply(alturaAux).setScale(2), 2, RoundingMode.DOWN);
+            }
 
         } else {
 
